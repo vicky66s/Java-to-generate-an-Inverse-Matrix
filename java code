@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    // Function to print a matrix
+    static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Function to create an Inverse Matrix
+    static int[][] createInvertedMatrix(int n) {
+        int[][] invertedMatrix = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if ((i + j) % 2 == 1) {
+                    invertedMatrix[i][j] = 1;
+                }
+            }
+        }
+
+        return invertedMatrix;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the matrix: ");
+        int n = scanner.nextInt();
+
+        // Creating the Inverse Matrix
+        int[][] invertedMatrix = createInvertedMatrix(n);
+
+        // Printing the Inverse Matrix
+        System.out.println("Inverse Matrix:");
+        printMatrix(invertedMatrix);
+    }
+}
